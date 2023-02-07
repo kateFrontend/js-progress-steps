@@ -1,3 +1,4 @@
+// bring elements from the DOM
 const progress = document.getElementById("progress");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
@@ -8,7 +9,7 @@ let currentActive = 1;
 next.addEventListener("click", () => {
   currentActive++;
 
-  if (currentActive > circles.length) {
+  if (currentActive > circles.length) {   //if it gets to the end, it doesn't go past four
     currentActive = circles.length;
   }
 
@@ -18,7 +19,7 @@ next.addEventListener("click", () => {
 prev.addEventListener("click", () => {
   currentActive--;
 
-  if (currentActive < 1) {
+  if (currentActive < 1) {     // not to go under into zero negative
     currentActive = 1;
   }
 
@@ -35,6 +36,8 @@ function update() {
   });
 
   const actives = document.querySelectorAll(".active");
+
+  // handle the progress bar
 
   progress.style.width =
     ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
